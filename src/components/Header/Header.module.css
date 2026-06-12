@@ -1,0 +1,356 @@
+.header {
+  width: 100%;
+  height: 70px;
+  background: #1a1a1d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-bottom: 1px solid #333;
+}
+
+/* MARCA */
+.sectionBrand { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.logoBox { background: var(--color-active); color: #000; font-weight: 900; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+.titleRow { display: flex; align-items: center; gap: 6px; }
+.mainTitle { font-size: 16px; font-weight: 900; color: #fff; margin: 0; }
+.versionBadge { 
+  background: var(--border-panel); 
+  color: var(--color-active); 
+  font-family: var(--font-mono); 
+  font-size: 9px; 
+  font-weight: 700; 
+  padding: 1px 5px; 
+  border-radius: 3px; 
+  border: 1px solid var(--border-light); 
+  display: inline-block;
+}
+.subTitle { font-size: 7px; color: #666; font-weight: 800; letter-spacing: 1px; }
+
+/* CONTROLES */
+.sectionControls { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; }
+
+.btnRec { background: #222; color: #ef4444; font-size: 9px; font-weight: 900; padding: 4px 8px; border: 1px solid #444; border-radius: 4px; cursor: pointer; }
+.btnRec--on { background: #ef4444; color: #fff; box-shadow: 0 0 8px #ef4444; }
+
+.micBox { background: #000; padding: 3px 8px; border-radius: 4px; border: 1px solid #333; display: flex; align-items: center; gap: 8px; }
+.btnMic { background: #111; color: #fff; font-size: 9px; font-weight: 900; padding: 3px 6px; border: 1px solid #444; border-radius: 2px; cursor: pointer; min-width: 60px; }
+.btnMic--on { background: var(--color-active); color: #000; }
+
+.vu { width: 40px; height: 3px; background: #222; border-radius: 1px; overflow: hidden; }
+.vuFill { height: 100%; background: #10b981; }
+
+.toolGroup { display: flex; gap: 4px; }
+.btnTool, .btnStream { background: #222; color: #ccc; font-size: 8px; font-weight: 800; padding: 5px 8px; border: 1px solid #444; border-radius: 3px; cursor: pointer; }
+.btnStream--on { 
+  background: rgba(57, 255, 20, 0.8);
+  color: #000;
+  border-color: rgba(57, 255, 20, 0.9);
+  animation: pulse-stream-btn 1s infinite alternate;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes pulse-stream-btn {
+  0% { 
+    background: rgba(57, 255, 20, 0.5);
+    box-shadow: 
+      0 0 8px rgba(57, 255, 20, 0.5), 
+      inset 0 0 5px rgba(57, 255, 20, 0.4),
+      inset 0 2px 2px rgba(255, 255, 255, 0.6); 
+  }
+  100% { 
+    background: rgba(57, 255, 20, 0.9);
+    box-shadow: 
+      0 0 25px rgba(57, 255, 20, 0.9), 
+      inset 0 0 15px rgba(57, 255, 20, 0.8),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9); 
+  }
+}
+.btnConfig { background: none; border: none; color: #666; font-size: 14px; cursor: pointer; padding: 0 5px; }
+
+/* TELEMETRÍA */
+.sectionTelemetry { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+
+.weatherBox { display: flex; flex-direction: column; align-items: flex-end; }
+.inputCity { background: transparent; border: none; color: var(--color-active); font-size: 10px; font-weight: 900; text-align: right; width: 100px; outline: none; }
+.weatherRow { display: flex; align-items: center; gap: 2px; }
+.inputSmall { background: #000; border: 1px solid #333; color: #fff; font-size: 9px; width: 22px; text-align: center; border-radius: 2px; }
+.unit { font-size: 8px; color: #444; font-weight: 900; }
+
+.clockBox { display: flex; flex-direction: column; align-items: flex-end; }
+.timeMain { font-family: var(--font-mono); font-size: 20px; font-weight: 900; color: #f59e0b; line-height: 1; }
+.voiceControls {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  margin-top: 4px;
+}
+.btnAuto {
+  background: #111;
+  border: 1px solid #333;
+  color: #444;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 0 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btnAuto--on {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+.btnVoice {
+  flex: 1;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* MODAL */
+/* MODAL ENCODER (LEGENDARY butt BROADCAST EDITION) */
+.buttModal {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 6px;
+  z-index: 10000;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.buttHeader {
+  background: #0f172a;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+}
+
+.buttBrand {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttTitle {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 900;
+  color: #38bdf8;
+  letter-spacing: -1px;
+}
+
+.buttSubtitle {
+  font-size: 8px;
+  color: #94a3b8;
+  font-weight: bold;
+}
+
+.buttClose {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.buttClose:hover {
+  color: #ef4444;
+}
+
+.buttLCD {
+  background: #0b0f19;
+  border: 2px solid #334155;
+  border-radius: 4px;
+  margin: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.lcdRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.lcdLabel {
+  color: #64748b;
+  font-weight: bold;
+}
+
+.lcdValue {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+.lcdVu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.vuLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #64748b;
+  font-weight: bold;
+}
+
+.vuBar {
+  flex: 1;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.vuFill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #38bdf8);
+  transition: width 0.1s ease;
+}
+
+.buttActions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 12px 12px 12px;
+}
+
+.buttBtnPlay {
+  width: 50px;
+  height: 40px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 4px;
+  color: #10b981;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.buttBtnPlay:hover {
+  background: #334155;
+}
+
+.buttBtnPlay--active {
+  background: #10b981;
+  color: #000;
+  border-color: #10b981;
+  box-shadow: 0 0 15px #10b981;
+}
+
+.buttBtnStop {
+  width: 50px;
+  height: 40px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 4px;
+  color: #ef4444;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.buttBtnStop:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.buttTabs {
+  display: flex;
+  background: #0f172a;
+  border-top: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+}
+
+.buttTab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.buttTab--active {
+  background: #1e293b;
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+}
+
+.buttTabContent {
+  padding: 15px;
+  background: #1e293b;
+}
+
+.buttFormGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttFormGroup label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.buttInput, .buttSelect {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  padding: 6px 10px;
+  font-size: 11px;
+  border-radius: 3px;
+  outline: none;
+  font-family: var(--font-mono);
+}
+
+.buttInput:focus, .buttSelect:focus {
+  border-color: #38bdf8;
+}
+
+.buttSaveBtn {
+  margin-top: 15px;
+  background: #38bdf8;
+  border: none;
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 10px;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttSaveBtn:hover {
+  background: #0284c7;
+  color: #fff;
+}

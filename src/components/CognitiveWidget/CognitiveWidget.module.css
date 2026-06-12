@@ -1,0 +1,205 @@
+
+.cognitivewidget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+}
+
+.cognitivewidget__trigger {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulseGlow 2.5s infinite;
+}
+
+.cognitivewidget__trigger:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.65);
+  animation: none; /* Pause pulsing on hover for a cleaner feel */
+}
+
+.cognitivewidget__panel {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: rgba(15, 15, 25, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cognitivewidget__header {
+  padding: 16px;
+  background: rgba(124, 58, 237, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cognitivewidget__icon {
+  font-size: 1.4rem;
+}
+
+.cognitivewidget__titleinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.cognitivewidget__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cognitivewidget__status {
+  font-size: 0.68rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.cognitivewidget__status--online {
+  color: #10b981; /* green */
+}
+
+.cognitivewidget__status--offline {
+  color: #a78bfa; /* purple */
+}
+
+.cognitivewidget__chat {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cognitivewidget__msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.cognitivewidget__msg--user {
+  background: #7c3aed;
+  color: #ffffff;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.cognitivewidget__msg--agent {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.cognitivewidget__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cognitivewidget__chip {
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #c084fc;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cognitivewidget__chip:hover {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.cognitivewidget__form {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 8px;
+  background: rgba(15, 15, 25, 0.95);
+}
+
+.cognitivewidget__input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cognitivewidget__input:focus {
+  border-color: #7c3aed;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cognitivewidget__send {
+  background: #7c3aed;
+  border: none;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cognitivewidget__send:hover {
+  background: #6d28d9;
+}

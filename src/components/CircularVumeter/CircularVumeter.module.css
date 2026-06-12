@@ -1,0 +1,138 @@
+.floatingWrapper {
+  position: fixed;
+  z-index: 9999;
+  cursor: grab;
+  user-select: none;
+}
+
+.orb {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.1s ease;
+}
+
+.orb--pulse {
+  animation: neonHeartbeat 0.6s infinite ease-in-out;
+}
+
+@keyframes neonHeartbeat {
+  0% { box-shadow: 0 0 10px rgba(6, 182, 212, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), inset 0 0 25px rgba(6, 182, 212, 0.2); }
+  100% { box-shadow: 0 0 10px rgba(6, 182, 212, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.05); }
+}
+
+.bgCircle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.03);
+  stroke-width: 3;
+}
+
+.levelCircleWeb {
+  fill: none;
+  stroke: #06b6d4; /* Cian Web */
+  stroke-width: 5;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 3px #06b6d4);
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.levelCircleLoc {
+  fill: none;
+  stroke: #fff; /* Blanco Local */
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  opacity: 0.8;
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.orbLabel {
+  position: absolute;
+  font-size: 8px;
+  font-weight: 900;
+  color: #fff;
+  opacity: 0.2;
+  letter-spacing: 1px;
+}
+
+.dockBtn {
+  position: absolute;
+  bottom: -25px;
+  background: #111;
+  border: 1px solid #444;
+  color: #06b6d4;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  transition: all 0.2s;
+}
+
+.dockBtn:hover {
+  background: #06b6d4;
+  color: #000;
+}
+
+/* DOCKED MODE */
+.dockedContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 15px;
+}
+
+.dockedBars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dockedBarLabel {
+  font-size: 6px;
+  font-weight: 900;
+  color: #555;
+}
+
+.dockedBar {
+  width: 120px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dockedFillWeb {
+  height: 100%;
+  background: #06b6d4;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.dockedFillLoc {
+  height: 100%;
+  background: #fff;
+  opacity: 0.8;
+}
+
+.unDockBtn {
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.unDockBtn:hover { color: #fff; }

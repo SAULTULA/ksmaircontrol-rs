@@ -1,0 +1,69 @@
+{
+  "name": "ksm-aircontrol",
+  "productName": "ksmaircontrol-rs",
+  "private": true,
+  "version": "1.0.16",
+  "type": "module",
+  "main": "src/main/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SAULTULA/ksmaircontrol-rs.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/bump-version.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "npx wait-on http://localhost:5173 && electron .",
+    "start": "npx concurrently \"npm run dev\" \"npm run electron\"",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.ksm.aircontrol",
+    "productName": "ksmaircontrol-rs",
+    "win": {
+      "target": "nsis",
+      "icon": "logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "KSM AirControl"
+    },
+    "directories": {
+      "output": "release"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "SAULTULA",
+        "repo": "ksmaircontrol-rs"
+      }
+    ]
+  },
+  "dependencies": {
+    "@electron/rebuild": "^4.0.4",
+    "@supabase/supabase-js": "^2.105.4",
+    "@xmldom/xmldom": "^0.9.10",
+    "ffmpeg-static": "^5.3.0",
+    "fuse.js": "^7.4.2",
+    "howler": "^2.2.4",
+    "ip-address": "^10.2.0",
+    "lamejs": "^1.2.1",
+    "node-fetch": "^3.3.2",
+    "node-id3": "^0.2.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "electron-updater": "^6.1.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "concurrently": "^8.2.2",
+    "electron": "^42.1.0",
+    "electron-builder": "^26.8.1",
+    "vite": "^8.0.13",
+    "wait-on": "^7.2.0"
+  }
+}

@@ -1,0 +1,570 @@
+.playlistWrapper {
+  background: var(--bg-app);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: background 0.3s, backdrop-filter 0.3s;
+}
+
+:global(.has-custom-bg) .playlistWrapper {
+  background: rgba(11, 11, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* TABS SUPERIORES */
+.playlist__tabsGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 4px 0 4px;
+  gap: 10px;
+  overflow: hidden; /* Evita que el contenedor principal se rompa */
+}
+
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto; /* Permite scroll horizontal si hay demasiadas pestañas */
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Ocultar barra de scroll de pestañas para mantener estética limpia */
+.tabsContainer::-webkit-scrollbar {
+  height: 2px;
+}
+.tabsContainer::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dockedPlayerContainer {
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-panel);
+}
+
+.tabItem {
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+.tabItem--active {
+  background: var(--bg-deck);
+  color: var(--color-active);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.addTabBtn {
+  background: transparent;
+  border: none;
+  color: #555;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+/* HEADER */
+.playlist__header {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.1);
+}
+
+.playlist__brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.modeControls {
+  display: flex;
+  gap: 4px;
+}
+
+.modeToggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 10px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modeToggle--active {
+  background: var(--color-active);
+  color: #000;
+  border-color: var(--color-active);
+  box-shadow: 0 0 5px var(--color-active);
+}
+
+.playlist__count {
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--text-muted);
+}
+
+.playlist__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.playlist__btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.playlist__btn:hover {
+  background: var(--color-active);
+  color: #000;
+}
+
+.playlist__btn--danger {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.playlist__btn--danger:hover {
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.row--selected {
+  background: rgba(99, 102, 241, 0.2) !important;
+  border-left: 3px solid #818cf8;
+}
+
+/* BODY CON SCROLL */
+.playlist__body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(0,0,0,0.1);
+}
+
+.playlist__body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playlist__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.playlist__body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+
+.playlist__body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-active);
+}
+
+/* ROWS */
+.row {
+  display: grid;
+  grid-template-columns: 30px 40px 1fr 60px 60px 60px;
+  align-items: center;
+  padding: 6px 12px;
+  background: transparent;
+  border-bottom: 1px solid var(--border-panel);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.row:hover {
+  background: var(--bg-row-hover);
+}
+
+.row--playing {
+  background: var(--bg-row-active);
+  border-left: 3px solid var(--color-active);
+}
+
+.row__num {
+  font-size: 10px;
+  color: #444;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-active);
+  box-shadow: 0 0 5px var(--color-active);
+}
+
+.typeBadge {
+  font-size: 8px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.typeBadge--music { background: #3b82f6; color: #fff; }
+.typeBadge--voice { background: #f59e0b; color: #fff; }
+
+.row__title {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.row__artist {
+  display: block;
+  font-size: 9px;
+  color: #666;
+}
+
+.toolBtn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.orderBtn {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.row__duration {
+  text-align: right;
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  font-size: 10px;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.schedulerCard {
+  background: var(--bg-panel);
+  width: 500px;
+  max-height: 80vh;
+  border-radius: 12px;
+  border: 1px solid var(--border-panel);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  padding: 15px 20px;
+  background: var(--bg-deck);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-panel);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--color-active);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.closeBtn:hover { color: #fff; }
+
+.modalBody {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.formRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 9px;
+  font-weight: 900;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.inputGroup input {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.inputGroup input:focus {
+  border-color: var(--color-active);
+  outline: none;
+}
+
+.schedulerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tracksCount {
+  font-size: 10px;
+  color: #888;
+}
+
+.schedulerList {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  min-height: 150px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.emptyList {
+  color: #444;
+  font-size: 11px;
+  text-align: center;
+  padding: 40px;
+}
+
+.schedRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #222;
+  font-size: 11px;
+  color: #ccc;
+}
+
+.schedRow button {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.schedRow button:hover { color: #ef4444; }
+
+.modalFooter {
+  padding: 15px 20px;
+  background: var(--bg-deck);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.cancelBtn, .saveBtn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelBtn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--text-muted);
+}
+
+.saveBtn {
+  background: var(--color-active);
+  border: none;
+  color: #000;
+}
+
+.saveBtn:hover {
+  background: #fff;
+}
+
+.activeSchedulesSection {
+  margin-top: 20px;
+  border-top: 1px solid #222;
+  padding-top: 15px;
+}
+
+.activeSchedulesSection label {
+  font-size: 9px;
+  font-weight: 900;
+  color: #666;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.activeSchedulesList {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.emptySchedules {
+  color: #444;
+  font-size: 11px;
+  text-align: center;
+  padding: 20px;
+}
+
+.scheduleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #222;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.deleteScheduleBtn {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.deleteScheduleBtn:hover {
+  color: #ef4444;
+}
+
+.daysGridSection {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.daysGridSection label {
+  font-size: 9px;
+  font-weight: 900;
+  color: #666;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.daysGrid {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dayRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #ccc;
+}
+
+.dayLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.dayLabel input[type="checkbox"] {
+  accent-color: var(--color-active);
+}
+
+.dayTimeInput {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.dayTimeInput:disabled {
+  color: #444;
+  border-color: #222;
+  background: #0a0a0d;
+}

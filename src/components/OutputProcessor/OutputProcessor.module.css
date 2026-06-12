@@ -1,0 +1,145 @@
+.container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider {
+  flex: 1;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--color-onair);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+}
+
+.value {
+  font-family: monospace;
+  font-size: 12px;
+  color: #fff;
+  min-width: 35px;
+}
+
+.hint {
+  font-size: 9px;
+  color: #555;
+  margin: 0;
+}
+
+.eqGrid {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.eqCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.eqCol label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #666;
+}
+
+.eqCol span {
+  font-size: 10px;
+  color: #888;
+  font-family: monospace;
+}
+
+.vSlider {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 8px;
+  height: 100px;
+  background: #222;
+}
+
+.switchRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  background: #222;
+  border: 1px solid #444;
+  color: #777;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.switch--on {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-onair);
+  border-color: var(--color-onair);
+}
+
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.presetBtn {
+  background: #222;
+  border: 1px solid #444;
+  color: #888;
+  padding: 6px 0;
+  border-radius: 4px;
+  font-size: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: #333;
+  color: #fff;
+  border-color: #666;
+}
+
+.presetBtn:active {
+  transform: scale(0.95);
+}

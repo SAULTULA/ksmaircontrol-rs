@@ -1,0 +1,279 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.toolWindow {
+  width: 1000px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tool__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-deck);
+  border-bottom: 1px solid var(--border-panel);
+}
+
+.tool__title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.tool__badge {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.tool__closeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tool__closeBtn:hover { color: var(--color-onair); }
+
+.tool__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Panel Meta Superior */
+.tool__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-app);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 3px;
+  border: 1px solid var(--border-panel);
+}
+
+.tool__trackName {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: block;
+}
+
+.tool__trackArtist {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Lienzo de Forma de Onda e Interacción Visual */
+.tool__canvasWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* BOTÓN DE AUTO-ANÁLISIS GIGANTE Y CENTRAL SOBRE LA ONDA */
+.tool__aiGiantBtn {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.1));
+  border: 1px solid var(--color-active);
+  color: var(--text-main);
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+  transition: all 0.1s ease;
+}
+
+.tool__aiGiantBtn:hover:not(:disabled) {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.3), rgba(99, 102, 241, 0.4), rgba(16, 185, 129, 0.3));
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.tool__aiGiantBtn:disabled {
+  opacity: 0.6;
+  border-color: var(--border-panel);
+}
+
+.tool__canvasContainer {
+  position: relative;
+  height: 180px;
+  background-color: #06060a;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  cursor: crosshair; /* Indica al usuario que puede hacer clic en la onda para fijar marcadores */
+}
+
+.tool__waveInstruction {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 20;
+  border: 1px solid var(--border-panel);
+}
+
+.tool__waveInstruction strong { color: var(--color-active); }
+
+.tool__waveCenter {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* Marcadores Visuales en el Lienzo */
+.marker {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  z-index: 15;
+  pointer-events: none; /* Permite que el clic caiga en el contenedor para recalcular la posición */
+}
+
+.marker--start { background-color: #10b981; box-shadow: 0 0 6px #10b981; }
+.marker--mix { background-color: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+.marker--end { background-color: #ef4444; box-shadow: 0 0 6px #ef4444; }
+
+.marker__badge {
+  position: absolute;
+  top: 24px;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  color: #fff;
+  border-radius: 1px;
+  white-space: nowrap;
+}
+
+.marker--start .marker__badge { background-color: #10b981; left: 4px; }
+.marker--mix .marker__badge { background-color: #f59e0b; left: 4px; }
+.marker--end .marker__badge { background-color: #ef4444; right: 4px; }
+
+/* Selector del Marcador a Fijar con Clic */
+.tool__modeSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--bg-deck);
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border-panel);
+}
+
+.tool__modeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.tool__modeRadioBtn {
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-panel);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.tool__modeRadioBtn--start.active { background-color: #10b981; color: #fff; border-color: #10b981; }
+.tool__modeRadioBtn--mix.active { background-color: #f59e0b; color: #fff; border-color: #f59e0b; }
+.tool__modeRadioBtn--end.active { background-color: #ef4444; color: #fff; border-color: #ef4444; }
+
+/* Sliders Inferiores de Respaldo */
+.tool__sliders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  background-color: var(--bg-deck);
+  padding: var(--space-sm);
+  border-radius: 3px;
+  border: 1px solid var(--border-panel);
+}
+
+.sliderGroup { display: flex; flex-direction: column; gap: 4px; }
+.sliderGroup__header { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; }
+.sliderGroup__header--start { color: #10b981; }
+.sliderGroup__header--mix { color: #f59e0b; }
+.sliderGroup__header--end { color: #ef4444; }
+.sliderGroup__val { font-family: var(--font-mono); color: var(--text-main); }
+.sliderGroup__input { width: 100%; accent-color: var(--color-accent); }
+
+.tool__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px var(--space-md);
+  background-color: var(--bg-deck);
+  border-top: 1px solid var(--border-panel);
+}
+
+.tool__btn {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.tool__btn:hover { background-color: var(--border-light); }
+
+.tool__btn--save {
+  background-color: var(--color-active);
+  border-color: var(--color-active);
+  color: #fff;
+  font-weight: 700;
+}
+
+.tool__btn--save:hover { background-color: #059669; border-color: #059669; }

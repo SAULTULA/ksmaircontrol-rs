@@ -1,0 +1,89 @@
+.licenseContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0b0b14;
+  color: #fff;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.licenseBox {
+  background: #151520;
+  border: 1px solid #2a2a35;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.title {
+  color: #6366f1;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #ef4444;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.description {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.hwidBox {
+  background: #000;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333;
+}
+
+.hwidLabel {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.hwidValue {
+  color: #10b981;
+  font-size: 18px;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.errorMsg {
+  color: #ef4444;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.btnRevalidate {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.btnRevalidate:hover {
+  background: #4f46e5;
+}

@@ -1,0 +1,298 @@
+.configContainer {
+  padding: 20px;
+  background: var(--bg-panel);
+  color: var(--text-main);
+  font-family: var(--font-studio);
+  display: flex;
+  flex-direction: column;
+  min-height: min-content;
+}
+
+.configTitle {
+  font-size: 14px;
+  margin: 0 0 5px 0;
+  color: #10b981;
+}
+
+.configSubtitle {
+  font-size: 11px;
+  color: #888;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.inputField {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.inputField:focus {
+  border-color: #10b981;
+}
+
+.inputDisabled {
+  background: var(--bg-app);
+  color: var(--text-muted);
+  border: 1px solid var(--border-panel);
+  cursor: not-allowed;
+}
+
+.inputGroup small {
+  font-size: 10px;
+  color: #666;
+  margin-top: 6px;
+}
+
+.saveBtn {
+  margin-top: 20px;
+  background: #10b981;
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.saveBtn:hover {
+  background: #0ea5e9;
+}
+
+/* === SECCIÓN DE PERFILES BEM === */
+
+.profilesSection {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px dashed #333;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profilesSection__title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #10b981;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profilesSection__inputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.profilesSection__input {
+  flex: 1;
+}
+
+.profilesSection__btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.profilesSection__btn:hover {
+  background: #1d4ed8;
+}
+
+.profilesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Custom Scrollbar for profile list */
+.profilesList::-webkit-scrollbar {
+  width: 4px;
+}
+.profilesList::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+.profileCard {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileCard__name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #e5e7eb;
+}
+
+.profileCard__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.profileCard__btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.profileCard__btn:hover {
+  opacity: 0.9;
+}
+
+.profileCard__btn--load {
+  background: #10b981;
+  color: #000;
+}
+
+.profileCard__btn--delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.versionInfo {
+  margin-top: 15px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
+
+.aiSection {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px dashed #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aiSection__title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #10b981;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aiSection__description {
+  font-size: 11px;
+  color: #888;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+/* === SECCIÓN DE APARIENCIA Y SKINS === */
+.appearanceSection {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px dashed #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appearanceSection__title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #10b981;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.appearanceSection__description {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.skinSelector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.skinBtn {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-muted);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.skinBtn:hover {
+  background: var(--bg-row-hover);
+  border-color: var(--border-light);
+  color: var(--text-main);
+}
+
+.skinBtnActive {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.skinBtnActive:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+}

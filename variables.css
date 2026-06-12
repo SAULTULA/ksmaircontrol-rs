@@ -1,0 +1,313 @@
+/* ==========================================================================
+   SISTEMA DE DISEÑO CENTRALIZADO — KSM AirControl Studio
+   Soporte Multi-Piel (Skins) por Atributo en HTML Raíz
+   v3.2 — Mejoras de profundidad, transiciones y legibilidad
+   ========================================================================== */
+
+:root, [data-skin="studio-dark"] {
+  /* === Fondos con más separación de capas === */
+  --bg-app: #0b0b12;
+  --bg-panel: #16161e;
+  --bg-panel-raised: #1c1c27;   /* NUEVO: cabeceras y zonas elevadas */
+  --bg-deck: #101018;
+  --bg-input: #1a1a26;          /* NUEVO: inputs y campos */
+
+  /* === Bordes más diferenciados === */
+  --border-panel: #262633;
+  --border-light: #34344a;
+  --border-focus: #6366f1;      /* NUEVO: anillo de foco */
+
+  /* === Colores funcionales broadcast === */
+  --color-active: #10b981;
+  --color-active-bg: rgba(16, 185, 129, 0.12);
+  --color-active-glow: rgba(16, 185, 129, 0.25); /* NUEVO */
+  --color-cue: #f59e0b;
+  --color-cue-bg: rgba(245, 158, 11, 0.12);
+  --color-onair: #ff2a2a;
+  --color-onair-bg: rgba(255, 42, 42, 0.12);
+  --color-accent: #6366f1;
+  --color-accent-bg: rgba(99, 102, 241, 0.12);
+
+  /* === Estados de fila === */
+  --bg-row-hover: rgba(255, 255, 255, 0.05);
+  --bg-row-active: rgba(16, 185, 129, 0.12);
+  --bg-row-selected: rgba(99, 102, 241, 0.15);
+
+  /* === Tipografía === */
+  --text-main: #f1f5f9;
+  --text-secondary: #cbd5e1;    /* NUEVO: nivel intermedio */
+  --text-muted: #94a3b8;
+  --text-disabled: #475569;     /* NUEVO */
+
+  --font-studio: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Consolas', 'Cascadia Code', monospace;
+
+  /* === Escala tipográfica fluida === */
+  --text-xs: clamp(0.65rem, 0.7vw, 0.72rem);
+  --text-sm: clamp(0.72rem, 0.78vw, 0.82rem);
+  --text-base: clamp(0.82rem, 0.88vw, 0.95rem);
+  --text-md: clamp(0.92rem, 1vw, 1.05rem);
+  --text-xl: clamp(1.1rem, 1.2vw, 1.3rem);
+  --text-display: clamp(1.8rem, 2.2vw, 2.5rem);
+
+  /* === Espaciado de alta densidad === */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+
+  /* === Radios === */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* === Transiciones === */
+  --transition-fast: 80ms ease;
+  --transition-base: 150ms ease;
+  --transition-slow: 250ms ease;
+
+  /* === Sombras sutiles para elevación === */
+  --shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   PIEL 2: MIDNIGHT CARBON (Nuevo — azul noche profundo, acentos cyan/verde)
+   Diseñada para largas sesiones nocturnas de broadcast
+   ========================================================================== */
+[data-skin="midnight-carbon"] {
+  --bg-app: #080c10;
+  --bg-panel: #0e1520;
+  --bg-panel-raised: #132030;
+  --bg-deck: #0a1018;
+  --bg-input: #111d2a;
+
+  --border-panel: #1a2535;
+  --border-light: #253550;
+  --border-focus: #4f9eff;
+
+  --color-active: #00d4aa;
+  --color-active-bg: rgba(0, 212, 170, 0.12);
+  --color-active-glow: rgba(0, 212, 170, 0.2);
+  --color-cue: #ffaa00;
+  --color-cue-bg: rgba(255, 170, 0, 0.12);
+  --color-onair: #ff3344;
+  --color-onair-bg: rgba(255, 51, 68, 0.12);
+  --color-accent: #4f9eff;
+  --color-accent-bg: rgba(79, 158, 255, 0.12);
+
+  --bg-row-hover: rgba(79, 158, 255, 0.07);
+  --bg-row-active: rgba(0, 212, 170, 0.12);
+  --bg-row-selected: rgba(79, 158, 255, 0.15);
+
+  --text-main: #e2eaf5;
+  --text-secondary: #a0b8cc;
+  --text-muted: #6a8cad;
+  --text-disabled: #3a5570;
+
+  --shadow-panel: 0 1px 4px rgba(0, 0, 0, 0.5);
+  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.65);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   PIEL 3: SCI-FI HUD MILITAR (Táctico, cian y verde radar)
+   ========================================================================== */
+[data-skin="sci-fi-hud"] {
+  --bg-app: #020617;
+  --bg-panel: #05101f;
+  --bg-panel-raised: #0a1a30;
+  --bg-deck: #082f49;
+  --bg-input: #0a1e35;
+
+  --border-panel: #0a3a6e;
+  --border-light: #0ea5e9;
+  --border-focus: #06b6d4;
+
+  --color-active: #10b981;
+  --color-active-bg: rgba(16, 185, 129, 0.14);
+  --color-active-glow: rgba(16, 185, 129, 0.25);
+  --color-cue: #f59e0b;
+  --color-cue-bg: rgba(245, 158, 11, 0.12);
+  --color-onair: #ef4444;
+  --color-onair-bg: rgba(239, 68, 68, 0.12);
+  --color-accent: #06b6d4;
+  --color-accent-bg: rgba(6, 182, 212, 0.12);
+
+  --bg-row-hover: rgba(6, 182, 212, 0.08);
+  --bg-row-active: rgba(16, 185, 129, 0.14);
+  --bg-row-selected: rgba(6, 182, 212, 0.18);
+
+  --text-main: #cffafe;
+  --text-secondary: #7dd3e8;
+  --text-muted: #38bdf8;
+  --text-disabled: #1a6070;
+
+  --shadow-panel: 0 0 8px rgba(6, 182, 212, 0.08);
+  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.06);
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   PIEL 4: NEOBRUTALISMO / CYBERPUNK POP
+   ========================================================================== */
+[data-skin="neobrutalism"] {
+  --bg-app: #fde047;
+  --bg-panel: #ffffff;
+  --bg-panel-raised: #f9fafb;
+  --bg-deck: #f3f4f6;
+  --bg-input: #f9fafb;
+
+  --border-panel: #000000;
+  --border-light: #000000;
+  --border-focus: #3b82f6;
+
+  --color-active: #16a34a;
+  --color-active-bg: rgba(22, 163, 74, 0.12);
+  --color-active-glow: rgba(22, 163, 74, 0.2);
+  --color-cue: #ea580c;
+  --color-cue-bg: rgba(234, 88, 12, 0.12);
+  --color-onair: #dc2626;
+  --color-onair-bg: rgba(220, 38, 38, 0.12);
+  --color-accent: #2563eb;
+  --color-accent-bg: rgba(37, 99, 235, 0.1);
+
+  --bg-row-hover: #e5e7eb;
+  --bg-row-active: rgba(22, 163, 74, 0.15);
+  --bg-row-selected: rgba(37, 99, 235, 0.12);
+
+  --text-main: #000000;
+  --text-secondary: #111827;
+  --text-muted: #374151;
+  --text-disabled: #9ca3af;
+
+  --shadow-panel: 3px 3px 0 #000;
+  --shadow-raised: 5px 5px 0 #000;
+  --shadow-modal: 8px 8px 0 #000;
+}
+
+[data-skin="neobrutalism"] * {
+  border-radius: 0px !important;
+}
+
+/* ==========================================================================
+   PIEL 5: CLAYMORPHISM (Volumen suave, pastel, alto contraste de texto)
+   ========================================================================== */
+[data-skin="claymorphism"] {
+  --bg-app: #fdf2f8;
+  --bg-panel: #ffffff;
+  --bg-panel-raised: #fef9fc;
+  --bg-deck: #fce7f3;
+  --bg-input: #fef3f8;
+
+  --border-panel: #fbcfe8;
+  --border-light: #f472b6;
+  --border-focus: #ec4899;
+
+  --color-active: #059669;
+  --color-active-bg: rgba(5, 150, 105, 0.1);
+  --color-active-glow: rgba(5, 150, 105, 0.18);
+  --color-cue: #d97706;
+  --color-cue-bg: rgba(217, 119, 6, 0.1);
+  --color-onair: #e11d48;
+  --color-onair-bg: rgba(225, 29, 72, 0.1);
+  --color-accent: #4f46e5;
+  --color-accent-bg: rgba(79, 70, 229, 0.1);
+
+  --bg-row-hover: rgba(244, 114, 182, 0.1);
+  --bg-row-active: rgba(5, 150, 105, 0.1);
+  --bg-row-selected: rgba(79, 70, 229, 0.1);
+
+  --text-main: #0f172a;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --text-disabled: #94a3b8;
+
+  --shadow-panel: 0 2px 8px rgba(244, 114, 182, 0.15);
+  --shadow-raised: 0 8px 24px rgba(244, 114, 182, 0.2);
+  --shadow-modal: 0 20px 60px rgba(244, 114, 182, 0.25);
+}
+
+/* ==========================================================================
+   RESETEO NATIVO — DAW STYLE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-studio);
+  font-size: var(--text-base);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Permitir selección de texto solo donde tiene sentido */
+input, textarea, [contenteditable="true"] {
+  user-select: text;
+}
+
+/* ==========================================================================
+   SCROLLBARS — Estilo hardware de audio
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cue);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ==========================================================================
+   UTILIDADES GLOBALES
+   ========================================================================== */
+
+/* Indicadores de estado de broadcast */
+.status-onair  { color: var(--color-onair);  }
+.status-active { color: var(--color-active); }
+.status-cue    { color: var(--color-cue);    }
+.status-accent { color: var(--color-accent); }
+.status-muted  { color: var(--text-muted);   }
+
+/* Píldoras de estado */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.pill-onair  { background: var(--color-onair-bg);  color: var(--color-onair);  }
+.pill-active { background: var(--color-active-bg); color: var(--color-active); }
+.pill-cue    { background: var(--color-cue-bg);    color: var(--color-cue);    }
+.pill-accent { background: var(--color-accent-bg); color: var(--color-accent); }

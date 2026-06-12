@@ -1,0 +1,209 @@
+.mixerWrapper {
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.mixerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-panel);
+  padding-bottom: 10px;
+}
+
+.headerTitle {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--color-active);
+  letter-spacing: 1px;
+}
+
+.masterOutput {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.masterOutput label {
+  font-size: 8px;
+  color: #666;
+  font-weight: 800;
+}
+
+.masterOutput select {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  font-size: 10px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.channelsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  flex: 1;
+}
+
+.channelStrip {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  border-radius: 8px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s;
+}
+
+.channelStrip.active {
+  border-color: var(--color-active);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+}
+
+.micIcon { font-size: 20px; }
+
+.chanName {
+  font-size: 10px;
+  font-weight: 900;
+  color: #ccc;
+}
+
+.inputSelector {
+  width: 100%;
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  font-size: 9px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.panner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.panner label { font-size: 8px; font-weight: 900; color: #444; }
+
+.panner input[type="range"] {
+  width: 100%;
+  accent-color: #666;
+}
+
+.panVal { font-size: 9px; color: #888; font-family: var(--font-mono); }
+
+.faderWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 180px;
+}
+
+.fader {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 20px;
+  height: 100%;
+  cursor: pointer;
+  accent-color: var(--color-active);
+}
+
+.volLabel { font-size: 10px; font-weight: 900; color: var(--color-active); }
+
+.muteBtn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05); /* Efecto vidrio base */
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 900;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.muteBtn:disabled {
+  background: rgba(0, 0, 0, 0.3);
+  color: #444;
+  cursor: not-allowed;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Estado MUTE (Reposo) -> Celeste cristal */
+.muteBtn.muted {
+  background: rgba(14, 165, 233, 0.2); /* Celeste semitransparente */
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 
+    0 0 10px rgba(14, 165, 233, 0.3), 
+    inset 0 0 8px rgba(14, 165, 233, 0.4),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.8);
+}
+
+/* Estado ON (Activo) -> Rojo brillante vidrio titilando */
+.muteBtn.btnOn {
+  background: rgba(239, 68, 68, 0.8);
+  color: #fff;
+  border-color: rgba(239, 68, 68, 0.9);
+  animation: pulse-hardware-btn 1s infinite alternate;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes pulse-hardware-btn {
+  0% { 
+    background: rgba(239, 68, 68, 0.6);
+    box-shadow: 
+      0 0 8px rgba(239, 68, 68, 0.6), 
+      inset 0 0 5px rgba(239, 68, 68, 0.5),
+      inset 0 2px 2px rgba(255, 255, 255, 0.4); 
+  }
+  100% { 
+    background: rgba(239, 68, 68, 0.9);
+    box-shadow: 
+      0 0 25px rgba(239, 68, 68, 0.9), 
+      inset 0 0 15px rgba(239, 68, 68, 1),
+      inset 0 4px 5px rgba(255, 255, 255, 0.8); 
+  }
+}
+
+.channelStrip__mobileBadge {
+  font-size: 10px;
+  background: var(--border-panel);
+  color: var(--text-main);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.channelStrip__mobileBadge--online {
+  background: var(--color-onair);
+  color: #000;
+}
+
+.channelStrip__simBtn {
+  background: var(--bg-deck);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+}

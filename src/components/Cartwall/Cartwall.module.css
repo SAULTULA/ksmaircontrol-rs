@@ -1,0 +1,125 @@
+.cartwallWrapper {
+  background: var(--bg-app);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-panel);
+  transition: background 0.3s, backdrop-filter 0.3s;
+}
+
+:global(.has-custom-bg) .cartwallWrapper {
+  background: rgba(11, 11, 18, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.cartwall__header {
+  padding: 8px;
+  background-color: var(--bg-deck);
+  border-bottom: 1px solid var(--border-panel);
+  text-align: center;
+}
+
+.cartwall__title {
+  font-size: 9px;
+  font-weight: 900;
+  color: var(--color-active);
+  letter-spacing: 0.5px;
+}
+
+.cartwall__grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 80px;
+  gap: 4px;
+  padding: 4px;
+  overflow-y: auto;
+}
+
+.cart {
+  background-color: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s;
+}
+
+.cart:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+.cart--empty {
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.cart--playing {
+  background-color: var(--color-active);
+  border-color: #fff;
+}
+
+.cart--playing .cart__title,
+.cart--playing .cart__shortcut {
+  color: #fff;
+}
+
+.cart__shortcut {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 8px;
+  font-weight: 900;
+  color: var(--text-muted);
+}
+
+.cart__title {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-main);
+  text-align: center;
+  word-break: break-all;
+}
+
+.cart__loadHint {
+  font-size: 7px;
+  font-weight: 900;
+  color: var(--color-active);
+  margin-top: 4px;
+}
+
+.cart__deleteBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.8);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+  line-height: 1;
+  padding: 0;
+}
+
+.cart:hover .cart__deleteBtn {
+  opacity: 1;
+}
+
+.cart__deleteBtn:hover {
+  background: #dc2626;
+  transform: scale(1.15);
+}

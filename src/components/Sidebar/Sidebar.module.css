@@ -1,0 +1,169 @@
+.sidebarWrapper {
+  background: var(--bg-sidebar);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.sidebar__tabs {
+  display: flex;
+  background: rgba(0,0,0,0.2);
+  padding: 4px;
+}
+
+.sidebar__tabBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.sidebar__tabBtn--active {
+  background: var(--color-active);
+  color: #000;
+}
+
+.sidebar__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.sidebar__tabContent {
+  height: 100%;
+}
+
+.sidebar__tabContent--hidden {
+  display: none;
+}
+
+.scheduler {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scheduler__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scheduler__label {
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.scheduler__select {
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.scheduler__bgActions {
+  display: flex;
+  gap: 8px;
+}
+
+.scheduler__bgBtn {
+  flex: 1;
+}
+
+.scheduler__statusBadge {
+  font-size: 10px;
+  color: var(--color-active);
+  font-weight: bold;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.voiceBankList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.voiceBankItem {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+}
+
+.voiceBankItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.voiceBankItem--active {
+  border-color: var(--color-active);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.bankDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #444;
+}
+
+.voiceBankItem--active .bankDot {
+  background: var(--color-active);
+  box-shadow: 0 0 5px var(--color-active);
+}
+
+.bankName {
+  font-weight: 700;
+  color: #eee;
+}
+
+.addBankBtn {
+  background: transparent;
+  border: 1px dashed var(--border-color);
+  color: var(--text-muted);
+  font-size: 9px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.addBankBtn:hover {
+  border-color: var(--color-active);
+  color: var(--color-active);
+}
+
+.helpText {
+  font-size: 9px;
+  color: var(--color-active);
+  opacity: 0.8;
+}
+
+.emptyHint {
+  text-align: center;
+  padding: 40px 10px;
+  font-size: 10px;
+  color: #555;
+  border: 1px dashed #333;
+  border-radius: 8px;
+}

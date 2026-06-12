@@ -1,0 +1,414 @@
+.playerWrapper {
+  background-color: var(--bg-deck);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid var(--border-panel);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.6);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* ESTADO FLOTANTE REAL */
+.player--floating {
+  position: fixed;
+  z-index: 9999;
+  cursor: grab;
+  user-select: none;
+  width: 480px;
+}
+
+.player--floating:active {
+  cursor: grabbing;
+}
+
+/* ESTADO ACOPLADO (DOCKED) - STRIP HORIZONTAL ULTRA COMPACTO */
+.player--docked {
+  position: relative;
+  width: 100%;
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 5px 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.dockedStrip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  height: 42px;
+}
+
+.statusMini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trackInfoMini {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 0; /* Permite que el contenedor se achique en flex layouts */
+}
+
+.trackTitleMini {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--color-active);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 0;
+  flex: 1;
+}
+
+.trackArtistMini {
+  font-size: 10px;
+  color: #065f46;
+  font-weight: 800;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.timerMini {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--color-cue);
+  background: var(--bg-panel);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border-panel);
+  flex-shrink: 0; /* Previene que se comprima */
+}
+
+.controlsMini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0; /* Evita compresión */
+}
+
+.playBtnMini {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #10b981, #059669);
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stopBtnMini {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--color-onair);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.progressMini {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.progressBarMini {
+  height: 4px;
+  background: var(--bg-panel);
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--border-panel);
+}
+
+.dockBtnMini {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-muted);
+  font-size: 8px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.dockBtnMini:hover {
+  background: var(--color-active);
+  color: #fff;
+  border-color: var(--color-active);
+}
+
+.dockBtn {
+  background: var(--bg-deck);
+  border: 1px solid var(--border-panel);
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dockBtn:hover {
+  background: var(--color-active);
+  color: #fff;
+  border-color: var(--color-active);
+}
+
+
+.dragHint {
+  background: #000;
+  color: #555;
+  font-size: 8px;
+  text-align: center;
+  padding: 2px;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.player__progress {
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.seekBtn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--color-cue);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+
+.seekBtn:hover {
+  background: #f59e0b;
+  color: #000;
+}
+
+.seekBtnMini {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--color-cue);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.player__header {
+  padding: 12px 15px;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.status__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.status__text {
+  font-size: 8px;
+  font-weight: 900;
+  color: #999;
+}
+
+.trackInfo {
+  flex: 1;
+  background: var(--bg-panel);
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border-panel);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.trackTitle {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--color-active);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackArtist {
+  font-size: 10px;
+  color: #065f46;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.player__body {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.timer {
+  background: var(--bg-panel);
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid var(--border-panel);
+  text-align: center;
+  min-width: 120px;
+}
+
+.timer__label {
+  font-size: 8px;
+  color: #555;
+  display: block;
+  font-weight: 900;
+}
+
+.timer__value {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 900;
+  color: #f59e0b;
+  line-height: 1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.playBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid var(--bg-panel);
+  background: linear-gradient(145deg, #10b981, #059669);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.stopBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  border: 2px solid var(--border-panel);
+  color: var(--color-onair);
+  cursor: pointer;
+}
+
+.volumeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.volumeSlider {
+  width: 80px;
+  height: 4px;
+  cursor: pointer;
+  accent-color: var(--color-active);
+}
+
+.player__progress {
+  padding: 0 15px 10px 15px;
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--bg-panel);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border-panel);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-active), #34d399);
+  box-shadow: 0 0 10px var(--color-active);
+}
+
+.player__footer {
+  background: rgba(0,0,0,0.2);
+  padding: 6px 15px;
+  font-size: 9px;
+  color: #666;
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.nextLabel { font-weight: 900; color: #444; }
+.nextTrack { color: #888; font-style: italic; }
+
+/* MODAL DSP (RESTAURADO) */
+.dspModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  background: #f3f4f6;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  z-index: 10000;
+  color: #1f2937;
+  border-radius: 2px;
+}
+
+.dspModal__header {
+  background: #e5e7eb;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #9ca3af;
+}
+
+.volHint {
+  font-size: 9px;
+  font-weight: 800;
+  color: #10b981;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
