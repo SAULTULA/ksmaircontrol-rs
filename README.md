@@ -29,9 +29,9 @@ KSM AirControl ha sido construido utilizando un stack tecnológico moderno y rob
 
 ## 💼 Acerca de KSM Servicios
 
-Este proyecto nació de la necesidad de revolucionar el software de radiodifusión, combinando las herramientas tradicionales de la radio con la tecnología web moderna. Es el primero de una serie de productos informáticos de élite desarrollados bajo la firma **KSM Servicios**. 
+Este proyecto nació como algo personal pero quiero compartirlo es un  software de radiodifusión, que combinando las herramientas tradicionales de la radio con la tecnología web moderna. Es el primero de una serie de productos informáticos  desarrollados bajo la firma **KSM Servicios**. 
 
-Nos especializamos en la creación de soluciones informáticas a medida, desarrollo de aplicaciones arquitectónicamente complejas y automatización de sistemas. El esfuerzo, la arquitectura y las madrugadas invertidas en **KSM AirControl** son testimonio del estándar de calidad que KSM Servicios imprime en cada una de sus obras.
+Nos especializamos en la creación de soluciones informáticas a medida, desarrollo de aplicaciones arquitectónicamente complejas y automatización de sistemas. El esfuerzo, la arquitectura y las madrugadas invertidas en **KSM AirControl** son testimonio ello de calidad que KSM Servicios imprime en cada una de sus obras.
 
 ---
 
